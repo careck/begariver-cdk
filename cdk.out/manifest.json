@@ -1,0 +1,308 @@
+{
+  "version": "12.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "Begariver-Snapshot": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "Begariver-Snapshot.template.json",
+        "validateOnSynth": false
+      },
+      "metadata": {
+        "/Begariver-Snapshot": [
+          {
+            "type": "aws:cdk:asset",
+            "data": {
+              "path": "asset.31cde112c22fcd811dcc6c7cca05ff282e5bd637f48af40f574cb903b4ccef6a",
+              "id": "31cde112c22fcd811dcc6c7cca05ff282e5bd637f48af40f574cb903b4ccef6a",
+              "packaging": "zip",
+              "sourceHash": "31cde112c22fcd811dcc6c7cca05ff282e5bd637f48af40f574cb903b4ccef6a",
+              "s3BucketParameter": "AssetParameters31cde112c22fcd811dcc6c7cca05ff282e5bd637f48af40f574cb903b4ccef6aS3Bucket6108AD3C",
+              "s3KeyParameter": "AssetParameters31cde112c22fcd811dcc6c7cca05ff282e5bd637f48af40f574cb903b4ccef6aS3VersionKeyAEA44BDC",
+              "artifactHashParameter": "AssetParameters31cde112c22fcd811dcc6c7cca05ff282e5bd637f48af40f574cb903b4ccef6aArtifactHashACA98620"
+            },
+            "trace": [
+              "ConstructNode.addMetadata (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/construct-compat.js:405:62)",
+              "LegacyStackSynthesizer.doAddFileAsset (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:175:29)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:83:25)",
+              "Stack.addFileAsset (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/stack.js:410:33)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:87:31)",
+              "new Asset (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:40:44)",
+              "AssetCode.bind (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/aws-lambda/lib/code.js:258:26)",
+              "new Function (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/aws-lambda/lib/function.js:97:33)",
+              "/tmp/tmpxl6xbfln/lib/program.js:8154:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpxl6xbfln/lib/program.js:8582:24)",
+              "Kernel._create (/tmp/tmpxl6xbfln/lib/program.js:8154:34)",
+              "Kernel.create (/tmp/tmpxl6xbfln/lib/program.js:7895:29)",
+              "KernelHost.processRequest (/tmp/tmpxl6xbfln/lib/program.js:9479:36)",
+              "KernelHost.run (/tmp/tmpxl6xbfln/lib/program.js:9442:22)",
+              "Immediate._onImmediate (/tmp/tmpxl6xbfln/lib/program.js:9443:46)",
+              "processImmediate (internal/timers.js:462:21)"
+            ]
+          }
+        ],
+        "/Begariver-Snapshot/begariver_plots_001/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "begariverplots001F745A0D5",
+            "trace": [
+              "new Bucket (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/aws-s3/lib/bucket.js:521:26)",
+              "/tmp/tmpxl6xbfln/lib/program.js:8154:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpxl6xbfln/lib/program.js:8582:24)",
+              "Kernel._create (/tmp/tmpxl6xbfln/lib/program.js:8154:34)",
+              "Kernel.create (/tmp/tmpxl6xbfln/lib/program.js:7895:29)",
+              "KernelHost.processRequest (/tmp/tmpxl6xbfln/lib/program.js:9479:36)",
+              "KernelHost.run (/tmp/tmpxl6xbfln/lib/program.js:9442:22)",
+              "Immediate._onImmediate (/tmp/tmpxl6xbfln/lib/program.js:9443:46)",
+              "processImmediate (internal/timers.js:462:21)"
+            ]
+          }
+        ],
+        "/Begariver-Snapshot/begariver_plots_001/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "begariverplots001Policy83D1B405",
+            "trace": [
+              "new BucketPolicy (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/aws-s3/lib/bucket-policy.js:32:25)",
+              "Bucket.addToResourcePolicy (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/aws-s3/lib/bucket.js:134:27)",
+              "Function.addToPrincipalOrResource (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/aws-iam/lib/grant.js:70:49)",
+              "Bucket.grantPublicAccess (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/aws-s3/lib/bucket.js:349:26)",
+              "new Bucket (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/aws-s3/lib/bucket.js:572:18)",
+              "/tmp/tmpxl6xbfln/lib/program.js:8154:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpxl6xbfln/lib/program.js:8582:24)",
+              "Kernel._create (/tmp/tmpxl6xbfln/lib/program.js:8154:34)",
+              "Kernel.create (/tmp/tmpxl6xbfln/lib/program.js:7895:29)",
+              "KernelHost.processRequest (/tmp/tmpxl6xbfln/lib/program.js:9479:36)",
+              "KernelHost.run (/tmp/tmpxl6xbfln/lib/program.js:9442:22)",
+              "Immediate._onImmediate (/tmp/tmpxl6xbfln/lib/program.js:9443:46)",
+              "processImmediate (internal/timers.js:462:21)"
+            ]
+          }
+        ],
+        "/Begariver-Snapshot/begariver-snapshot/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "begariversnapshotServiceRoleF5B6A693",
+            "trace": [
+              "new Role (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/aws-iam/lib/role.js:72:22)",
+              "new Function (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/aws-lambda/lib/function.js:79:35)",
+              "/tmp/tmpxl6xbfln/lib/program.js:8154:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpxl6xbfln/lib/program.js:8582:24)",
+              "Kernel._create (/tmp/tmpxl6xbfln/lib/program.js:8154:34)",
+              "Kernel.create (/tmp/tmpxl6xbfln/lib/program.js:7895:29)",
+              "KernelHost.processRequest (/tmp/tmpxl6xbfln/lib/program.js:9479:36)",
+              "KernelHost.run (/tmp/tmpxl6xbfln/lib/program.js:9442:22)",
+              "Immediate._onImmediate (/tmp/tmpxl6xbfln/lib/program.js:9443:46)",
+              "processImmediate (internal/timers.js:462:21)"
+            ]
+          }
+        ],
+        "/Begariver-Snapshot/begariver-snapshot/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "begariversnapshotServiceRoleDefaultPolicy88B10E74",
+            "trace": [
+              "new Policy (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/aws-iam/lib/policy.js:56:26)",
+              "Role.addToPrincipalPolicy (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/aws-iam/lib/role.js:205:34)",
+              "Function.addToPrincipal (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/aws-iam/lib/grant.js:90:65)",
+              "Function.addToPrincipalOrResource (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/aws-iam/lib/grant.js:45:30)",
+              "Bucket.grant (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/aws-s3/lib/bucket.js:380:31)",
+              "Bucket.grantReadWrite (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/aws-s3/lib/bucket.js:320:21)",
+              "/tmp/tmpxl6xbfln/lib/program.js:7970:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpxl6xbfln/lib/program.js:8582:24)",
+              "/tmp/tmpxl6xbfln/lib/program.js:7970:107",
+              "Kernel._ensureSync (/tmp/tmpxl6xbfln/lib/program.js:8563:28)",
+              "Kernel.invoke (/tmp/tmpxl6xbfln/lib/program.js:7970:34)",
+              "KernelHost.processRequest (/tmp/tmpxl6xbfln/lib/program.js:9479:36)",
+              "KernelHost.run (/tmp/tmpxl6xbfln/lib/program.js:9442:22)",
+              "Immediate._onImmediate (/tmp/tmpxl6xbfln/lib/program.js:9443:46)",
+              "processImmediate (internal/timers.js:462:21)"
+            ]
+          }
+        ],
+        "/Begariver-Snapshot/begariver-snapshot/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "begariversnapshot680CAFA7",
+            "trace": [
+              "new Function (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/aws-lambda/lib/function.js:135:26)",
+              "/tmp/tmpxl6xbfln/lib/program.js:8154:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpxl6xbfln/lib/program.js:8582:24)",
+              "Kernel._create (/tmp/tmpxl6xbfln/lib/program.js:8154:34)",
+              "Kernel.create (/tmp/tmpxl6xbfln/lib/program.js:7895:29)",
+              "KernelHost.processRequest (/tmp/tmpxl6xbfln/lib/program.js:9479:36)",
+              "KernelHost.run (/tmp/tmpxl6xbfln/lib/program.js:9442:22)",
+              "Immediate._onImmediate (/tmp/tmpxl6xbfln/lib/program.js:9443:46)",
+              "processImmediate (internal/timers.js:462:21)"
+            ]
+          }
+        ],
+        "/Begariver-Snapshot/AssetParameters/31cde112c22fcd811dcc6c7cca05ff282e5bd637f48af40f574cb903b4ccef6a/S3Bucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters31cde112c22fcd811dcc6c7cca05ff282e5bd637f48af40f574cb903b4ccef6aS3Bucket6108AD3C",
+            "trace": [
+              "new FileAssetParameters (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:12:36)",
+              "LegacyStackSynthesizer.doAddFileAsset (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:162:22)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:83:25)",
+              "Stack.addFileAsset (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/stack.js:410:33)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:87:31)",
+              "new Asset (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:40:44)",
+              "AssetCode.bind (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/aws-lambda/lib/code.js:258:26)",
+              "new Function (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/aws-lambda/lib/function.js:97:33)",
+              "/tmp/tmpxl6xbfln/lib/program.js:8154:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpxl6xbfln/lib/program.js:8582:24)",
+              "Kernel._create (/tmp/tmpxl6xbfln/lib/program.js:8154:34)",
+              "Kernel.create (/tmp/tmpxl6xbfln/lib/program.js:7895:29)",
+              "KernelHost.processRequest (/tmp/tmpxl6xbfln/lib/program.js:9479:36)",
+              "KernelHost.run (/tmp/tmpxl6xbfln/lib/program.js:9442:22)",
+              "Immediate._onImmediate (/tmp/tmpxl6xbfln/lib/program.js:9443:46)",
+              "processImmediate (internal/timers.js:462:21)"
+            ]
+          }
+        ],
+        "/Begariver-Snapshot/AssetParameters/31cde112c22fcd811dcc6c7cca05ff282e5bd637f48af40f574cb903b4ccef6a/S3VersionKey": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters31cde112c22fcd811dcc6c7cca05ff282e5bd637f48af40f574cb903b4ccef6aS3VersionKeyAEA44BDC",
+            "trace": [
+              "new FileAssetParameters (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:16:35)",
+              "LegacyStackSynthesizer.doAddFileAsset (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:162:22)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:83:25)",
+              "Stack.addFileAsset (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/stack.js:410:33)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:87:31)",
+              "new Asset (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:40:44)",
+              "AssetCode.bind (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/aws-lambda/lib/code.js:258:26)",
+              "new Function (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/aws-lambda/lib/function.js:97:33)",
+              "/tmp/tmpxl6xbfln/lib/program.js:8154:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpxl6xbfln/lib/program.js:8582:24)",
+              "Kernel._create (/tmp/tmpxl6xbfln/lib/program.js:8154:34)",
+              "Kernel.create (/tmp/tmpxl6xbfln/lib/program.js:7895:29)",
+              "KernelHost.processRequest (/tmp/tmpxl6xbfln/lib/program.js:9479:36)",
+              "KernelHost.run (/tmp/tmpxl6xbfln/lib/program.js:9442:22)",
+              "Immediate._onImmediate (/tmp/tmpxl6xbfln/lib/program.js:9443:46)",
+              "processImmediate (internal/timers.js:462:21)"
+            ]
+          }
+        ],
+        "/Begariver-Snapshot/AssetParameters/31cde112c22fcd811dcc6c7cca05ff282e5bd637f48af40f574cb903b4ccef6a/ArtifactHash": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters31cde112c22fcd811dcc6c7cca05ff282e5bd637f48af40f574cb903b4ccef6aArtifactHashACA98620",
+            "trace": [
+              "new FileAssetParameters (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:20:38)",
+              "LegacyStackSynthesizer.doAddFileAsset (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:162:22)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:83:25)",
+              "Stack.addFileAsset (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/stack.js:410:33)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:87:31)",
+              "new Asset (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:40:44)",
+              "AssetCode.bind (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/aws-lambda/lib/code.js:258:26)",
+              "new Function (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/aws-lambda/lib/function.js:97:33)",
+              "/tmp/tmpxl6xbfln/lib/program.js:8154:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpxl6xbfln/lib/program.js:8582:24)",
+              "Kernel._create (/tmp/tmpxl6xbfln/lib/program.js:8154:34)",
+              "Kernel.create (/tmp/tmpxl6xbfln/lib/program.js:7895:29)",
+              "KernelHost.processRequest (/tmp/tmpxl6xbfln/lib/program.js:9479:36)",
+              "KernelHost.run (/tmp/tmpxl6xbfln/lib/program.js:9442:22)",
+              "Immediate._onImmediate (/tmp/tmpxl6xbfln/lib/program.js:9443:46)",
+              "processImmediate (internal/timers.js:462:21)"
+            ]
+          }
+        ],
+        "/Begariver-Snapshot/Rule/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Rule4C995B7F",
+            "trace": [
+              "new Rule (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/aws-events/lib/rule.js:33:26)",
+              "/tmp/tmpxl6xbfln/lib/program.js:8154:58",
+              "Kernel._wrapSandboxCode (/tmp/tmpxl6xbfln/lib/program.js:8582:24)",
+              "Kernel._create (/tmp/tmpxl6xbfln/lib/program.js:8154:34)",
+              "Kernel.create (/tmp/tmpxl6xbfln/lib/program.js:7895:29)",
+              "KernelHost.processRequest (/tmp/tmpxl6xbfln/lib/program.js:9479:36)",
+              "KernelHost.run (/tmp/tmpxl6xbfln/lib/program.js:9442:22)",
+              "Immediate._onImmediate (/tmp/tmpxl6xbfln/lib/program.js:9443:46)",
+              "processImmediate (internal/timers.js:462:21)"
+            ]
+          }
+        ],
+        "/Begariver-Snapshot/Rule/AllowEventRuleBegariverSnapshotbegariversnapshot243E22CF": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RuleAllowEventRuleBegariverSnapshotbegariversnapshot243E22CF74D5CFF0",
+            "trace": [
+              "Function.addPermission (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/aws-lambda/lib/function-base.js:42:9)",
+              "Object.addLambdaPermission (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/aws-events-targets/lib/util.js:62:17)",
+              "LambdaFunction.bind (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/aws-events-targets/lib/lambda.js:27:16)",
+              "Rule.addTarget (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/aws-events/lib/rule.js:86:36)",
+              "/tmp/tmpxl6xbfln/lib/program.js:7970:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpxl6xbfln/lib/program.js:8582:24)",
+              "/tmp/tmpxl6xbfln/lib/program.js:7970:107",
+              "Kernel._ensureSync (/tmp/tmpxl6xbfln/lib/program.js:8563:28)",
+              "Kernel.invoke (/tmp/tmpxl6xbfln/lib/program.js:7970:34)",
+              "KernelHost.processRequest (/tmp/tmpxl6xbfln/lib/program.js:9479:36)",
+              "KernelHost.run (/tmp/tmpxl6xbfln/lib/program.js:9442:22)",
+              "Immediate._onImmediate (/tmp/tmpxl6xbfln/lib/program.js:9443:46)",
+              "processImmediate (internal/timers.js:462:21)"
+            ]
+          }
+        ],
+        "/Begariver-Snapshot/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata",
+            "trace": [
+              "new MetadataResource (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/private/metadata-resource.js:22:30)",
+              "/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/private/synthesis.js:128:9",
+              "visit (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/private/synthesis.js:185:9)",
+              "visit (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/private/synthesis.js:182:9)",
+              "injectMetadataResources (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/private/synthesis.js:117:5)",
+              "Object.synthesize (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/private/synthesis.js:17:5)",
+              "App.synth (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/stage.js:100:41)",
+              "/tmp/tmpxl6xbfln/lib/program.js:7970:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpxl6xbfln/lib/program.js:8582:24)",
+              "/tmp/tmpxl6xbfln/lib/program.js:7970:107",
+              "Kernel._ensureSync (/tmp/tmpxl6xbfln/lib/program.js:8563:28)",
+              "Kernel.invoke (/tmp/tmpxl6xbfln/lib/program.js:7970:34)",
+              "KernelHost.processRequest (/tmp/tmpxl6xbfln/lib/program.js:9479:36)",
+              "KernelHost.run (/tmp/tmpxl6xbfln/lib/program.js:9442:22)",
+              "Immediate._onImmediate (/tmp/tmpxl6xbfln/lib/program.js:9443:46)",
+              "processImmediate (internal/timers.js:462:21)"
+            ]
+          }
+        ],
+        "/Begariver-Snapshot/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable",
+            "trace": [
+              "new MetadataResource (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/private/metadata-resource.js:30:35)",
+              "/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/private/synthesis.js:128:9",
+              "visit (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/private/synthesis.js:185:9)",
+              "visit (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/private/synthesis.js:182:9)",
+              "injectMetadataResources (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/private/synthesis.js:117:5)",
+              "Object.synthesize (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/private/synthesis.js:17:5)",
+              "App.synth (/tmp/jsii-kernel-EHBknG/node_modules/@aws-cdk/core/lib/stage.js:100:41)",
+              "/tmp/tmpxl6xbfln/lib/program.js:7970:134",
+              "Kernel._wrapSandboxCode (/tmp/tmpxl6xbfln/lib/program.js:8582:24)",
+              "/tmp/tmpxl6xbfln/lib/program.js:7970:107",
+              "Kernel._ensureSync (/tmp/tmpxl6xbfln/lib/program.js:8563:28)",
+              "Kernel.invoke (/tmp/tmpxl6xbfln/lib/program.js:7970:34)",
+              "KernelHost.processRequest (/tmp/tmpxl6xbfln/lib/program.js:9479:36)",
+              "KernelHost.run (/tmp/tmpxl6xbfln/lib/program.js:9442:22)",
+              "Immediate._onImmediate (/tmp/tmpxl6xbfln/lib/program.js:9443:46)",
+              "processImmediate (internal/timers.js:462:21)"
+            ]
+          }
+        ]
+      },
+      "displayName": "Begariver-Snapshot"
+    }
+  }
+}

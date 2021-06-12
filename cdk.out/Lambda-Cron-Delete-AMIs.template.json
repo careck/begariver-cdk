@@ -1,0 +1,308 @@
+{
+  "Resources": {
+    "begariversnapshotServiceRoleF5B6A693": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+              ]
+            ]
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "Lambda-Cron-Delete-AMIs/begariver-snapshot/ServiceRole/Resource"
+      }
+    },
+    "begariversnapshot680CAFA7": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "ZipFile": "## Importing Necessary Modules\nimport requests # to get image from the web\nimport shutil # to save it locally\nimport os\nfrom datetime import datetime\nimport boto3\n\nbom_plots = [\n    (\"Bega River at Bega North\", \"http://www.bom.gov.au/fwo/IDN60234/IDN60234.069120\"),\n    (\"Bega River at Kanoona\", \"http://www.bom.gov.au/fwo/IDN60234/IDN60234.569028\"),\n    (\"Tantawangalo Creek at Candelo Damsite\", \"http://www.bom.gov.au/fwo/IDN60234/IDN60234.569021\"),\n    (\"Bemboka River at Morans Crossing\", \"http://www.bom.gov.au/fwo/IDN60234/IDN60234.569013\"),\n    (\"Brogo River at Angledale\", \"http://www.bom.gov.au/fwo/IDN60234/IDN60234.569008\"),\n    (\"Double Creek near Brogo\", \"http://www.bom.gov.au/fwo/IDN60234/IDN60234.569027\"),\n    (\"Brogo River at North Brogo\", \"http://www.bom.gov.au/fwo/IDN60234/IDN60234.569023\"),\n    (\"Brogo Dam\", \"http://www.bom.gov.au/fwo/IDN60234/IDN60234.569016\"),\n    (\"Pambula River at Lochiel\", \"http://www.bom.gov.au/fwo/IDN60234/IDN60234.569014\")\n]\n\ndef download_file(filename, url):\n        # Open the url, set stream to True, this will return the stream content.\n        r = requests.get(url, stream = True, headers = {'User-Agent': 'Mozilla/5.0'})\n\n        # Check if the image was retrieved successfully\n        if r.status_code == 200:\n            # Set decode_content value to True, otherwise the downloaded image file's size will be zero.\n            r.raw.decode_content = True\n            \n            # Open a local file with wb ( write binary ) permission.\n            with open(filename,'wb') as f:\n                shutil.copyfileobj(r.raw, f)\n                \n            print('File sucessfully Downloaded, ',filename)\n        else:\n            print('File Couldn\\'t be retrieved: ', url)\n\n\ndef lambda_handler(event, context):\n\n    # make new daily directory\n    dirname = datetime.now().strftime('%Y-%m-%d')\n    os.makedirs(dirname,exist_ok=True)\n\n    # iterate over all river plots and download image and table html\n    for idx, (title, image_url) in enumerate(bom_plots):\n\n        filename = dirname+\"/\"+title\n        ## Download the image\n        download_file(filename+\".png\", image_url+\".png\")\n\n        ## Download the html file\n        download_file(filename+\".html\", image_url+\".tbl.shtml\")\n"
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "begariversnapshotServiceRoleF5B6A693",
+            "Arn"
+          ]
+        },
+        "Handler": "index.handler",
+        "Runtime": "python3.6",
+        "Timeout": 900
+      },
+      "DependsOn": [
+        "begariversnapshotServiceRoleF5B6A693"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "Lambda-Cron-Delete-AMIs/begariver-snapshot/Resource"
+      }
+    },
+    "Rule4C995B7F": {
+      "Type": "AWS::Events::Rule",
+      "Properties": {
+        "ScheduleExpression": "rate(1 day)",
+        "State": "ENABLED",
+        "Targets": [
+          {
+            "Arn": {
+              "Fn::GetAtt": [
+                "begariversnapshot680CAFA7",
+                "Arn"
+              ]
+            },
+            "Id": "Target0"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "Lambda-Cron-Delete-AMIs/Rule/Resource"
+      }
+    },
+    "RuleAllowEventRuleLambdaCronDeleteAMIsbegariversnapshot5B7EE6C608781868": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "begariversnapshot680CAFA7",
+            "Arn"
+          ]
+        },
+        "Principal": "events.amazonaws.com",
+        "SourceArn": {
+          "Fn::GetAtt": [
+            "Rule4C995B7F",
+            "Arn"
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "Lambda-Cron-Delete-AMIs/Rule/AllowEventRuleLambdaCronDeleteAMIsbegariversnapshot5B7EE6C6"
+      }
+    },
+    "CDKMetadata": {
+      "Type": "AWS::CDK::Metadata",
+      "Properties": {
+        "Analytics": "v2:deflate64:H4sIAAAAAAAAA02MQQrCMBBFz9J9OrWI0KVQcF3aE8R0xLHNBJKJIiF3t6kuXL3P+/OnhfbQQVud9SvUZl6aZJxHSJNos6jecRAfjaj+xiMGF73BkrdiJiHHWZVhWrW9zhrSJbIputz85wG9pRD2AWkLaXTr/qgwK3wiS9hs/NmNOWc1vOXuuDlCB6fqEYhqH1nIIoxffgDKn5T0vwAAAA=="
+      },
+      "Metadata": {
+        "aws:cdk:path": "Lambda-Cron-Delete-AMIs/CDKMetadata/Default"
+      },
+      "Condition": "CDKMetadataAvailable"
+    }
+  },
+  "Conditions": {
+    "CDKMetadataAvailable": {
+      "Fn::Or": [
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "af-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-northeast-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-northeast-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-southeast-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-southeast-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ca-central-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "cn-north-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "cn-northwest-1"
+              ]
+            }
+          ]
+        },
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-central-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-north-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-3"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "me-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "sa-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-east-2"
+              ]
+            }
+          ]
+        },
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-west-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-west-2"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
