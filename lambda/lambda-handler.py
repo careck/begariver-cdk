@@ -62,7 +62,7 @@ def handler(event, context):
     # make new daily directory
     sydney_tz = tz.gettz("Australia/Sydney")
     now = datetime.now(tz=sydney_tz)
-    dirname = now.strftime('%Y-%m-%d')
+    dirname = now.strftime('%Y/%m/%d')
 
     # iterate over all river plots and download image and table html
     for idx, (title, image_url) in enumerate(bom_plots):
