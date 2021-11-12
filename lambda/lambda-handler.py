@@ -27,7 +27,7 @@ S3_BUCKET_ARN = os.getenv('s3_bucket_arn', 'arn:aws:s3:::begariver-plots-001')
 S3_BUCKET_NAME = os.getenv('s3_bucket_name', 'begariver-plots-001')
 
 
-def download_file(filename, url):
+def download_file(dirname, filename, url):
 
         logger.info("Downloading: "+url)
         logger.info("Writing to: "+filename)
@@ -48,7 +48,8 @@ def download_file(filename, url):
             # now copy the file to s3
             s3_client = boto3.client('s3')
             try:
-                response = s3_client.upload_file("tempfile", S3_BUCKET_NAME, filename)
+                response = s3_client.upload_file("tempfile", S3_BUCKET_NAME, dirname+'/'+filename)
+                response = s3_client.upload_file("tempfile", S3_BUCKET_NAME, 'current/'+filename)
             except ClientError as e:
                 logger.error(e)
 
@@ -67,11 +68,10 @@ def handler(event, context):
     # iterate over all river plots and download image and table html
     for idx, (title, image_url) in enumerate(bom_plots):
 
-        filename = dirname+"/"+title
         ## Download the image
-        download_file(filename+".png", image_url+".png")
+        download_file(dirname, title+".png", image_url+".png")
 
         ## Download the html file
-        download_file(filename+".html", image_url+".tbl.shtml")
+        download_file(dirname, title+".html", image_url+".tbl.shtml")
 
 
